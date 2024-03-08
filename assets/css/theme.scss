@@ -1,0 +1,54 @@
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+
+  --blue-color: #5488fe;
+  --red-color: #fa2454;
+  --yellow-color: #eeba04;
+  --green-color: #44b904;
+  --deep-green-color: linear-gradient(270deg, #1a6d63 0%, #075e54 100%);
+
+  --a-button-color: #9595c2;
+
+  --white-background-color: rgba(255, 255, 255, 0.8);
+
+  --background-color: rgba(0, 0, 0, 0.8);
+
+  --modal-background-color: rgba(0, 0, 0, 1);
+
+  --progress-color: #0f081e;
+
+  --panel-background-color: rgba(255, 255, 255, 0.9);
+
+  --border-color: #a6a6ae;
+  --second-text-color: #a6a6ae;
+  --third-text-color: #d7d3d3;
+
+  --main-text-color: #fff;
+  --disabled-text-color: #3a3a65;
+  --tag-background-color: rgba(126, 165, 255, 0.2);
+  --primary-color: #5488fe;
+  --adverse-primary-color: #fa2454;
+  --card-box-shadow: 0px 9px 36px 4px rgba(49, 24, 132, 0.5);
+  --input-box-shadow: none;
+  --btn-box-shadow: 0px 5px 10px 1px rgba(122, 84, 251, 0.01);
+  --tag-box-shadow: none;
+
+  --input-background-color: rgba(126, 165, 255, 0.2);
+  --chart-background-color: rgba(126, 165, 255, 0.2);
+
+  --notice-background-color: rgba(255, 217, 41, 0.5);
+
+  --red-background-color: rgba(61, 13, 13, 1);
+  --blue-background-color: rgba(126, 165, 255, 0.2);
+
+  --nav-background-color: rgba(7, 1, 71, 0.8);
+
+  --select-color: #3a3a65;
+
+  --f-bg-color: linear-gradient(49deg, #1d27a0 0%, #7f1ddb 98%);
+  --x-bg-color: linear-gradient(45deg, #ee0647 0%, #f05a29 100%);
+}
