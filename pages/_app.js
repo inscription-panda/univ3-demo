@@ -13,7 +13,7 @@ import Web3Provider from '@/contexts/Web3Provider'
 import GlobalProvider from '@/contexts/GlobalProvider'
 import { initWeb3Onboard } from '@/config/wallet.config'
 import { store } from '@/store/index'
-import { theme } from '@/theme'
+import { theme } from '../theme'
 import '../assets/css/styles.scss'
 
 function noop() {}
