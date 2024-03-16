@@ -6,8 +6,6 @@ export const theme = extendTheme({
       // styles for the `body`
       body: {
         minHeight: '100vh',
-        background:
-          'linear-gradient(180deg, rgba(175,196,200) 0%, rgba(181,214,220) 100%)',
       },
       // p: {
       //   color: '#e2e2e4',
