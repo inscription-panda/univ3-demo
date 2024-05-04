@@ -11,7 +11,12 @@ export const contracts = {
   FxUSD: '0x085780639CC2cACd35E474e71f4d000e2405d8f6',
 }
 
-export const tokens = {}
+export const tokens = {
+  eth: '0x0000000000000000000000000000000000000000',
+  usdc: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+  usdt: '0xdac17f958d2ee523a2206206994597c13d831ec7',
+  fxUSD: '0x085780639CC2cACd35E474e71f4d000e2405d8f6',
+}
 
 const TOKENS_INFO = {
   eth: ['ethereum', tokens.eth, 18, 'eth'],
