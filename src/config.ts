@@ -46,7 +46,7 @@ export const CurrentConfig: ExampleConfig = {
   tokens: {
     in: IN_TOKEN,
     out: OUT_TOKEN,
-    poolFee: FeeAmount.MEDIUM,
+    poolFee: FeeAmount.LOWEST, // MEDIUM,
     eth: ETH_TOKEN,
   },
 }

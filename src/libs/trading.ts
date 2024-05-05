@@ -42,36 +42,34 @@ export type TokenTrade = Trade<Token, Token, TradeType>
 
 // Trading Functions
 
-export async function createTrade(tradeAmount: number): Promise<TokenTrade> {
-  const poolInfo = await getPoolInfo()
+export async function createTrade(
+  tradeAmount: number,
+  inToken: Token,
+  outToken: Token,
+  poolFee: number
+): Promise<TokenTrade> {
+  const poolInfo = await getPoolInfo(inToken, outToken, poolFee)
 
   const pool = new Pool(
-    CurrentConfig.tokens.in,
-    CurrentConfig.tokens.out,
-    CurrentConfig.tokens.poolFee,
+    inToken,
+    outToken,
+    poolFee,
     poolInfo.sqrtPriceX96.toString(),
     poolInfo.liquidity.toString(),
     poolInfo.tick
   )
 
-  const swapRoute = new Route(
-    [pool],
-    CurrentConfig.tokens.in,
-    CurrentConfig.tokens.out
-  )
+  const swapRoute = new Route([pool], inToken, outToken)
 
-  const amountOut = await getOutputQuote(swapRoute, tradeAmount)
+  const amountOut = await getOutputQuote(swapRoute, tradeAmount, inToken)
   const uncheckedTrade = Trade.createUncheckedTrade({
     route: swapRoute,
     inputAmount: CurrencyAmount.fromRawAmount(
-      CurrentConfig.tokens.in,
-      fromReadableAmount(
-        tradeAmount,
-        CurrentConfig.tokens.in.decimals
-      ).toString()
+      inToken,
+      fromReadableAmount(tradeAmount, inToken.decimals).toString()
     ),
     outputAmount: CurrencyAmount.fromRawAmount(
-      CurrentConfig.tokens.out,
+      outToken,
       JSBI.BigInt(amountOut)
     ),
     tradeType: TradeType.EXACT_INPUT,
@@ -81,7 +79,8 @@ export async function createTrade(tradeAmount: number): Promise<TokenTrade> {
 }
 
 export async function executeTrade(
-  trade: TokenTrade
+  trade: TokenTrade,
+  inToken: Token
 ): Promise<TransactionState> {
   const walletAddress = getWalletAddress()
   const provider = getProvider()
@@ -91,7 +90,7 @@ export async function executeTrade(
   }
 
   // Give approval to the router to spend the token
-  const tokenApproval = await getTokenTransferApproval(CurrentConfig.tokens.in)
+  const tokenApproval = await getTokenTransferApproval(inToken)
 
   // Fail if transfer approvals do not go through
   if (tokenApproval !== TransactionState.Sent) {
@@ -126,7 +125,8 @@ export async function executeTrade(
 
 async function getOutputQuote(
   route: Route<Currency, Currency>,
-  tradeAmount: number
+  tradeAmount: number,
+  inToken: Token
 ) {
   const provider = getProvider()
 
@@ -137,11 +137,8 @@ async function getOutputQuote(
   const { calldata } = await SwapQuoter.quoteCallParameters(
     route,
     CurrencyAmount.fromRawAmount(
-      CurrentConfig.tokens.in,
-      fromReadableAmount(
-        tradeAmount,
-        CurrentConfig.tokens.in.decimals
-      ).toString()
+      inToken,
+      fromReadableAmount(tradeAmount, inToken.decimals).toString()
     ),
     TradeType.EXACT_INPUT,
     {

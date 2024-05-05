@@ -12,7 +12,7 @@ export const SWAP_ROUTER_ADDRESS = '0xE592427A0AEce92De3Edee1F18E0157C05861564'
 export const WETH_CONTRACT_ADDRESS =
   '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
 
-const CHAIN = 99917
+export const CHAIN = 99917
 
 // Currencies and Tokens
 export const IN2_TOKEN = new Token(
@@ -80,3 +80,8 @@ export const MAX_PRIORITY_FEE_PER_GAS = 100000000000
 export const TOKEN_AMOUNT_TO_APPROVE_FOR_TRANSFER = 2000
 export const GAS = '0x76c00'
 export const GAS_PRICE = '0x4a817c8000'
+
+// Uniswap V2: USDC 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc
+// Uniswap V3: USDC 3 0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640
+// Uniswap V3: USDC 2 0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8
+// Uniswap V3: wstETH 3 0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa

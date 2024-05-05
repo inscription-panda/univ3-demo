@@ -5,6 +5,7 @@ import { ethers } from 'ethers'
 import { CurrentConfig } from '../config'
 import { POOL_FACTORY_CONTRACT_ADDRESS } from './constants'
 import { getProvider } from './providers'
+import { Token } from '@uniswap/sdk-core'
 
 interface PoolInfo {
   token0: string
@@ -16,7 +17,11 @@ interface PoolInfo {
   tick: number
 }
 
-export async function getPoolInfo(): Promise<PoolInfo> {
+export async function getPoolInfo(
+  inToken: Token,
+  outToken: Token,
+  poolFee: number
+): Promise<PoolInfo> {
   const provider = getProvider()
   if (!provider) {
     throw new Error('No provider')
@@ -24,9 +29,9 @@ export async function getPoolInfo(): Promise<PoolInfo> {
 
   const currentPoolAddress = computePoolAddress({
     factoryAddress: POOL_FACTORY_CONTRACT_ADDRESS,
-    tokenA: CurrentConfig.tokens.in,
-    tokenB: CurrentConfig.tokens.out,
-    fee: CurrentConfig.tokens.poolFee,
+    tokenA: inToken,
+    tokenB: outToken,
+    fee: poolFee,
   })
 
   console.log('currentPoolAddress----', currentPoolAddress)
