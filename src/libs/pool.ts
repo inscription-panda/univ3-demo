@@ -29,6 +29,8 @@ export async function getPoolInfo(): Promise<PoolInfo> {
     fee: CurrentConfig.tokens.poolFee,
   })
 
+  console.log('currentPoolAddress----', currentPoolAddress)
+
   const poolContract = new ethers.Contract(
     currentPoolAddress,
     IUniswapV3PoolABI.abi,

@@ -12,40 +12,37 @@ export const SWAP_ROUTER_ADDRESS = '0xE592427A0AEce92De3Edee1F18E0157C05861564'
 export const WETH_CONTRACT_ADDRESS =
   '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
 
+const CHAIN = 99917
+
 // Currencies and Tokens
 export const IN2_TOKEN = new Token(
-  SupportedChainId.MAINNET,
+  CHAIN,
   '0x0000000000000000000000000000000000000000',
   18,
   'ETH',
   'ETH'
 )
 
-export const ETH_TOKEN = new NativeCurrency(
-  SupportedChainId.MAINNET,
-  18,
-  'ETH',
-  'ETH'
-)
+export const ETH_TOKEN = new NativeCurrency(CHAIN, 18, 'ETH', 'ETH')
 
 export const IN_TOKEN = new Token(
-  SupportedChainId.MAINNET,
+  CHAIN,
   '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
   18,
   'WETH',
   'Wrapped Ether'
 )
 
-export const USDC_TOKEN = new Token(
-  SupportedChainId.MAINNET,
+export const OUT_TOKEN = new Token(
+  CHAIN,
   '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
   6,
   'USDC',
   'USD//C'
 )
 
-export const OUT_TOKEN = new Token(
-  SupportedChainId.MAINNET,
+export const USDT_TOKEN = new Token(
+  CHAIN,
   '0xdac17f958d2ee523a2206206994597c13d831ec7',
   6,
   'USDT',

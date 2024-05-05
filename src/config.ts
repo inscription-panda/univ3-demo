@@ -34,9 +34,9 @@ export const CurrentConfig: ExampleConfig = {
   env: Environment.WALLET_EXTENSION,
   rpc: {
     local:
-      'https://rpc.phalcon.blocksec.com/rpc_63c67d8a63084eb2a9a5b59178285283',
+      'https://rpc.phalcon.blocksec.com/rpc_59b9c5a981d44ec19ec3071bf79e75ca',
     mainnet:
-      'https://rpc.phalcon.blocksec.com/rpc_63c67d8a63084eb2a9a5b59178285283',
+      'https://rpc.phalcon.blocksec.com/rpc_59b9c5a981d44ec19ec3071bf79e75ca',
   },
   wallet: {
     address: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
