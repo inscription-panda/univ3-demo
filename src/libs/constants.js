@@ -78,8 +78,8 @@ export const WETH_ABI = [
 export const MAX_FEE_PER_GAS = 100000000000
 export const MAX_PRIORITY_FEE_PER_GAS = 100000000000
 export const TOKEN_AMOUNT_TO_APPROVE_FOR_TRANSFER = 2000
-export const GAS = '0x96c00' // '0x76c00'
-export const GAS_PRICE = '0x4a917c8000' // '0x4a817c8000'
+export const GAS = '0xf6c00' // '0x76c00'
+export const GAS_PRICE = '0x5a817c8000' // '0x4a817c8000'
 
 // Uniswap V2: USDC 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc
 // Uniswap V3: USDC 3 0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640
